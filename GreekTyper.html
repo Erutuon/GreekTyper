@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery.min.js"></script>
+		<script src="bowser.min.js"></script>
+		<script src="GreekTyper.min.js"></script>
+		<script src="description.js"></script>
+		<link rel="stylesheet" href="GreekTyper.css" type="text/css">
+		<title>Greek typer</title>
+	</head>
+	<body>
+		<div id="content">
+			<textarea class="Grek" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+			<div id="options-wrapper">
+				<p id="options-button"></p>
+				<div id="options">
+					<p>
+						<input id="compose-toggle" type="checkbox">
+						<label for="compose-toggle">composed characters</label>
+					</p>
+					<p>
+						<input id="backspace-toggle" type="checkbox">
+						<label for="backspace-toggle">delete individual diacritics</label>
+					<p>
+					<p>
+						<input id="reorder-diacritics-toggle" type="checkbox">
+						<label for="reorder-diacritics-toggle">put diacritics in the correct order</label>
+					<p>
+					<div class="sub-option">
+						<p>
+							<input id="validate-diacritics-toggle" type="checkbox">
+							<label for="validate-diacritics-toggle">validate diacritics</label>
+						<p>
+						<p class="sub-option">
+							<input id="replace-diacritics-toggle" type="checkbox">
+							<label for="replace-diacritics-toggle">replace diacritic already on letter</label>
+						<p>
+						<p class="sub-option">
+							<input id="macron-and-breve-toggle" type="checkbox">
+							<label for="macron-and-breve-toggle">allow both macron and breve on a single letter</label>
+						<p>
+					</div>
+				</div>
+				<div id="description-button"></div>
+				<div id="description">
+					<p>Options:</p>
+					<ul>
+						<li>Composed characters: If checked, use a single character for Greek letters with diacritics whenever possible: for instance, <span class="togrc composed">a)</span> (<span class="codepoint">1F00</span>) instead of <span class="togrc">a</span> + <span class="togrc">0)</span> (<span class="codepoint">3B1</span> + <span class="codepoint">313</span>). In technical terms, this means that Normalization Form Composition (NFC) is used, rather than Normalization Form Decomposition (NFD).</li>
+						<li>Deleting individual diacritics: If checked, backspace deletes one diacritic at a time. For example, <span class="togrc">a)/</span> &rarr; <span class="togrc">a)</span> &rarr; <span class="togrc">a</span><!-- <span class="togrc">a_)/</span> &rarr; <span class="togrc">a_)</span> &rarr; <span class="togrc">a_</span> &rarr; <span class="togrc">a</span> -->. If unchecked, backspace deletes a letter plus all its diacritics. (This is true whether the diacritics are combining or not.)</li>
+						<li>Putting diacritics in the correct order: if checked, Greek diacritics will be automatically sorted in the order macron or breve (<span class="togrc">0_, 0^</span>); then rough breathing, smooth breathing, or diaeresis (<span class="togrc">0(, 0), 0+</span>); then acute, grave, or circumflex accent (<span class="togrc">0/, 0\, 0=</span>), then iota subscript (<span class="togrc">0|</span>).</li>
+						<li>Validating diacritics: if checked, a letter can only have one of each type of diacritic. (Type refers to the groups of diacritics that are at the same position in the sort order described above.) This means that your input is ignored if the letter already has that type of diacritic. For instance, typing <code>a//</code> will produce <span class="togrc">a/</span>, not <span class="togrc">a//</span>, and typing <code>a()</code> will produce <span class="togrc">a(</span>, not <span class="togrc">a()</span>.</li>
+						<li>Replacing diacritics: this modifies the behavior of validation. Instead of not being able to type another character, you can replace existing diacritics of the same type. For instance, typing a smooth breathing <span class="togrc">0)</span> (<code>)</code>) after an alpha with rough breathing <span class="togrc">a(</span> (<code>a(</code>) will produce alpha with smooth breathing <span class="togrc">a)</span>, because the smooth breathing and rough breathing are of the same type.</li>
+						<li>Allowing both macron and breve: if checked, a vowel can have both a macron and breve: <span class="togrc">a_^</span>. When you uncheck this, any macron&ndash;breve sequences will be replaced with macrons: <span class="togrc">a_^</span> &rarr; <span class="togrc">a_</span>.</li>
+					</ul>
+					<p>Features:</p>
+					<ul>
+						<li>Shift + backspace deletes a sequence of diacritics without deleting the base character. For example, <span class="togrc">a_)/|</span> &rarr; <span class="togrc">a</span>. (This works even if the composed characters setting is on.)</li>
+					</ul>
+					<p>Notes:</p>
+					<ul>
+						<li>Greek question mark <span class="Grek">&#x37E;</span> (<span class="codepoint">37E</span>) is normalized to semicolon <span class="Grek">;</span> (<span class="codepoint">3B</span>) and Greek semicolon or colon <span class="Grek">&#x387;</span> (<span class="codepoint">387</span>, ano teleia) to middle dot or interpunct <span class="Grek">&#xB7;</span> (<span class="codepoint">B7</span>), so the script uses the latter characters.</li>
+						<li>Several features of this script don't function yet in Microsoft Edge.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

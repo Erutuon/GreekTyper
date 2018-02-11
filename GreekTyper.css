@@ -1,0 +1,85 @@
+#content {
+	margin: auto;
+	padding: 1em;
+	background-color: hsl(200, 60%, 90%);
+}
+
+#content, #options-wrapper, #options-button, #description-button {
+	width: intrinsic;
+	width: -moz-max-content;
+	width: -webkit-max-content;
+}
+
+.Grek, .togrc {
+	font-family: New Athena Unicode;
+}
+
+.togrc::after {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+textarea {
+	height: 12em;
+	width: 40em;
+	border: 1px solid hsla(200, 60%, 50%);
+	padding: 0.5em;
+	background-color: hsla(200, 60%, 98%);
+	font-size: 20px;
+}
+
+#options-wrapper {
+	padding: 0;
+}
+
+#options-button, #options, #description-button, #description {
+	border: 3px double hsla(200, 60%, 50%);
+}
+
+#options-button, #description-button {
+	display: inline-block;
+	margin: 2px 0;
+	padding: 0.2em 0.4em 0.4em 0.2em;
+	background: #EEE;
+	cursor: pointer;
+}
+
+#options, #description {
+	clear: both;
+	margin: 2px 0 2px 1em;
+	background-color: hsla(200, 60%, 86%);
+}
+
+#options {
+	padding: 0.2em 0.4em 0.2em 0.2em;
+}
+
+#description {
+	width: 32em;
+	padding: 0.3em;
+}
+
+#description p, #description ul {
+	margin: 0;
+}
+
+.sub-option {
+	margin-left: 1em;
+}
+
+input, label {
+	cursor: default;
+}
+
+code {
+	margin: 0.1em;
+	border: 1px solid lightgray;
+	padding: 0.2em;
+}
+
+.codepoint {
+	font-family: monospace;
+}
+.codepoint::before {
+	content: "U+";
+}
